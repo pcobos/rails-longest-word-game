@@ -1,5 +1,7 @@
 <h1>New Game</h1>
 
-<% @letters.each do |letter| %>
-  <p><%= letter %></p>
-<% end %>
+<div class="grid">
+  <% @letters.each do |letter| %>
+    <p class="grid-letter"><%= letter %></p>
+  <% end %>
+</div>
