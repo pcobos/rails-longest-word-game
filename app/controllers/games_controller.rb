@@ -1,5 +1,5 @@
 require 'json'
-require 'nokogiri'
+require 'open-uri'
 
 class GamesController < ApplicationController
   attr_reader :letters
