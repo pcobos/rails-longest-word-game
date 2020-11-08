@@ -1,3 +1,6 @@
+require 'json'
+require 'nokogiri'
+
 class GamesController < ApplicationController
   attr_reader :letters
 
@@ -14,9 +17,19 @@ class GamesController < ApplicationController
     # Else we 
   end
 
-  private
+  # private
+
+  def grid_includes_word?(word, grid)
+    word.chars.all? { |letter| word.count(letter) <= grid.count(letter) }
+  end
 
   def english_word?(word)
     url = "https://wagon-dictionary.herokuapp.com/#{word}"
+    serialized_word = open(url).read
+    api_word = JSON.parse(serialized_word)
+    api_word["found"]
   end
+  
+  # binding.pry
+  
 end
