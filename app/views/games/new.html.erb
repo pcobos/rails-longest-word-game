@@ -6,8 +6,10 @@
     <% end %>
   </div>
   <div class="attempt-form">
-    <form action="/new" method="POST">
-      <input type="text" id="attempt" name="attemp">
+    <p>What is the longest word you can find?</p>
+    <form action="/score" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <input type="text" id="attempt" name="attemp" value="Attempt">
     </form>
   </div>
 </div>
