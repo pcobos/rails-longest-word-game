@@ -10,9 +10,13 @@ class GamesController < ApplicationController
 
   def score
     # Grab the word sent by the user
-    @word = params[:word]
+    @word = params[:word].upcase
+    @letters = params[:letters]
     # Check if the word was made using the letters contained in the grid
+    @included = grid_includes_word?(@word, @letters)
     # Check if the word is english
+    @english_word = english_word?(@word)
+    raise
     # If so, we say congrats
     # Else we 
   end
@@ -24,9 +28,8 @@ class GamesController < ApplicationController
   end
 
   def english_word?(word)
-    url = "https://wagon-dictionary.herokuapp.com/#{word}"
-    serialized_word = open(url).read
-    api_word = JSON.parse(serialized_word)
+    url = open("https://wagon-dictionary.herokuapp.com/#{word}")
+    api_word = JSON.parse(url.read)
     api_word["found"]
   end
   
