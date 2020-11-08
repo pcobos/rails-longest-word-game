@@ -2,12 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+$white: white;
+$blue: rgb(66, 66, 238);
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .grid-letter {
-  color: white;
+  color: $white;
   display: inline;
-  background-color: rgb(66, 66, 238);
+  background-color: $blue;
   padding: 8px;
   border-radius: 2px;
   box-shadow: -2px 2px 8px 1px #888888;
   margin-left: 2px;
+}
+
+.container {
+  padding: 20px;
 }
