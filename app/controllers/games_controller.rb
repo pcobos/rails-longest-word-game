@@ -16,7 +16,6 @@ class GamesController < ApplicationController
     @included = grid_includes_word?(@word, @letters)
     # Check if the word is english
     @english_word = english_word?(@word)
-    raise
     # If so, we say congrats
     # Else we 
   end
